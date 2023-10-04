@@ -32,6 +32,8 @@ stages:
   - job: BuildJob
     pool:
       name: local
+    #pool:
+    #  vmImage: ubuntu-latest
     steps:
     - task: UsePythonVersion@0
       inputs:
@@ -67,7 +69,9 @@ stages:
   jobs:
   - deployment: DeploymentJob
     pool:
-      name: locall
+      name: local
+    #pool:
+    #  vmImage: ubuntu-latest
     environment: $(environmentName)
     strategy:
       runOnce:
